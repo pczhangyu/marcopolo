@@ -2,3 +2,4 @@
 .idea
 .gitignore
 marcopolo-logger/*.iml
+marcopolo-common/*.iml

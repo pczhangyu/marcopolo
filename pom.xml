@@ -9,13 +9,21 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>marcopolo-logger</module>
+        <module>marcopolo-common</module>
     </modules>
 
     <properties>
+        <junit.version>4.11</junit.version>
         <!--todo-->
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
         <!--todo-->
     </dependencies>
 </project>

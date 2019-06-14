@@ -1,4 +1,4 @@
-package com.feecn.logger;
+package com.feecn.common.logger;
 
 import static org.junit.Assert.assertTrue;
 

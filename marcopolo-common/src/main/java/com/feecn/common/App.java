@@ -1,4 +1,4 @@
-package com.feecn.logger;
+package com.feecn.common;
 
 /**
  * Hello world!
