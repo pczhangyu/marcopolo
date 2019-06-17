@@ -3,3 +3,4 @@
 .gitignore
 marcopolo-logger/*.iml
 marcopolo-common/*.iml
+marcopolo-data/marcopolo-data.iml

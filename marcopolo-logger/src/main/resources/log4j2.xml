@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="TRACE">
+    <Properties>
+        <!-- 配置日志文件输出目录 -->
+        <!--<Property name="LOG_HOME" value="log/log_${main:0}" />-->
+        <Property name="filePath">E:/a-code/logagent/log</Property>
+        <!--<Property name="LOG_NAME">http</Property>-->
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
+        </Console>
+        <!--&lt;!&ndash; 按天第天备份一个日志 &ndash;&gt;-->
+        <!--<RollingFile name="Console" fileName="${sys:catalina.home}/logs/marcopolo.log"-->
+                     <!--filePattern="${sys:catalina.home}/logs/marcopolo_%d{yyyy-MM-dd}_%i.log" >-->
+            <!--<PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>-->
+            <!--<Policies>-->
+                <!--&lt;!&ndash;-->
+                <!--基于时间的触发策略。该策略主要是完成周期性的log文件封存工作。有两个参数：-->
+                <!--interval，integer型，指定两次封存动作之间的时间间隔。单位:以日志的命名精度来确定单位，-->
+                    <!--比如yyyy-MM-dd-HH 单位为小时，yyyy-MM-dd-HH-mm 单位为分钟-->
+                <!--modulate，boolean型，说明是否对封存时间进行调制。若modulate=true，-->
+                    <!--则封存时间将以0点为边界进行偏移计算。比如，modulate=true，interval=4hours，-->
+                    <!--那么假设上次封存日志的时间为03:00，则下次封存日志的时间为04:00，-->
+                    <!--之后的封存时间依次为08:00，12:00，16:00-->
+                <!--&ndash;&gt;-->
+                <!--&lt;!&ndash; 每天更新一次 每个文件最大活跃大小 512MB 最多备份10个文件 &ndash;&gt;-->
+                <!--<TimeBasedTriggeringPolicy modulate="true" interval="1" />-->
+                <!--<SizeBasedTriggeringPolicy size="512MB" />-->
+            <!--</Policies>-->
+            <!--&lt;!&ndash; 最多备份10个 &ndash;&gt;-->
+            <!--<DefaultRolloverStrategy max="10" />-->
+        <!--</RollingFile>-->
+        <!-- 按天第天备份一个日志 -->
+        <RollingFile name="MarcopoloError" fileName="${filePath}/logs/marcopolo_error.log"
+                     filePattern="${filePath}/logs/marcopolo_error_%d{yyyy-MM-dd}_%i.log">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
+            <Policies>
+                <!--
+                基于时间的触发策略。该策略主要是完成周期性的log文件封存工作。有两个参数：
+                interval，integer型，指定两次封存动作之间的时间间隔。单位:以日志的命名精度来确定单位，
+                    比如yyyy-MM-dd-HH 单位为小时，yyyy-MM-dd-HH-mm 单位为分钟
+                modulate，boolean型，说明是否对封存时间进行调制。若modulate=true，
+                    则封存时间将以0点为边界进行偏移计算。比如，modulate=true，interval=4hours，
+                    那么假设上次封存日志的时间为03:00，则下次封存日志的时间为04:00，
+                    之后的封存时间依次为08:00，12:00，16:00
+                -->
+                <!-- 每天更新一次 每个文件最大活跃大小 128MB 最多备份10个文件 -->
+                <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+                <SizeBasedTriggeringPolicy size="128MB" />
+            </Policies>
+            <!-- 最多备份10个 -->
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <logger name="com.marcopolo" level="trace" additivity="false">
+            <appender-ref ref="MarcopoloError" level="error"/>
+            <appender-ref ref="Console" level="info"/>
+        </logger>
+        <logger name="org.springframework.context" level="trace" additivity="false">
+            <appender-ref ref="MarcopoloError" level="error"/>
+            <appender-ref ref="Console" level="info"/>
+        </logger>
+        <logger name="org.springframework.web" level="trace" additivity="false">
+            <appender-ref ref="MarcopoloError" level="error"/>
+            <appender-ref ref="Console" level="info"/>
+        </logger>
+        <logger name="org.springframework.beans" level="trace" additivity="false">
+            <appender-ref ref="MarcopoloError" level="error"/>
+            <appender-ref ref="Console" level="info"/>
+        </logger>
+        <logger name="org.quartz" level="trace" additivity="false">
+            <appender-ref ref="MarcopoloError" level="error"/>
+            <appender-ref ref="Console" level="info"/>
+        </logger>
+        <logger name="org.mybatis" level="trace" additivity="false">
+            <appender-ref ref="MarcopoloError" level="error"/>
+            <appender-ref ref="Console" level="info"/>
+        </logger>
+        <logger name="org.apache" level="trace" additivity="false">
+            <appender-ref ref="MarcopoloError" level="error"/>
+            <appender-ref ref="Console" level="info"/>
+        </logger>
+        <logger name="java.sql" level="trace" additivity="false">
+            <appender-ref ref="MarcopoloError" level="error"/>
+            <appender-ref ref="Console" level="info"/>
+        </logger>
+        <logger name="org.apache.shiro" level="trace" additivity="false">
+            <appender-ref ref="MarcopoloError" level="error"/>
+            <appender-ref ref="Console" level="info"/>
+        </logger>
+        <Root level="trace">
+            <!-- Only events at DIAG level or more specific are sent to the console. -->
+            <appenderRef ref="MarcopoloError"/>
+            <appenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
