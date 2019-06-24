@@ -4,3 +4,5 @@
 marcopolo-logger/*.iml
 marcopolo-common/*.iml
 marcopolo-data/marcopolo-data.iml
+marcopolo-web/marcopolo-web.iml
+marcopolo-web/.mvn/*
