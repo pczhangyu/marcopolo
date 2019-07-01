@@ -11,6 +11,7 @@
         <module>marcopolo-logger</module>
         <module>marcopolo-common</module>
         <module>marcopolo-data</module>
+        <module>marcopolo-web</module>
     </modules>
 
     <properties>
