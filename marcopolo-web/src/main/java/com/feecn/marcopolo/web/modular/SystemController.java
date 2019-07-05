@@ -27,7 +27,6 @@ public class SystemController {
     public ResponseEntity<?> changeLogLevel(@RequestParam(value="level")String level)
     {
         logger.info("{}, log level has been changed.",level);
-        logger.info("{}",logger.getLevel());
         Level newLevel = Level.toLevel(level);
         LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
         Configuration config = ctx.getConfiguration();
@@ -49,25 +48,5 @@ public class SystemController {
         logger.info("{}, log level has been changed.",logger.getLevel());
         return ResponseEntity.ok(logger.getLevel());
     }
-
-//    public static org.apache.logging.log4j.Level toLog4jLevel(Level level) {
-//        if (level == Level.ALL) {
-//            return Level.ALL;
-//        }
-//        if (level == Level.TRACE) {
-//            return Level.TRACE;
-//        }
-//        if (level == Level.DEBUG) {
-//            return Level.DEBUG;
-//        }
-//        if (level == Level.INFO)
-//            return org.apache.logging.log4j.Level.INFO;
-//        if (level == Level.WARN)
-//            return org.apache.logging.log4j.Level.WARN;
-//        if (level == Level.ERROR)
-//            return org.apache.logging.log4j.Level.ERROR;
-//        return org.apache.logging.log4j.Level.OFF;
-//    }
-
 
 }
