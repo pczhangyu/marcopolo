@@ -1,5 +1,5 @@
 # marcopolo
-##概述 ： marcopolo是全自动智能爬虫，并提供数据流即时处理的功能。
+## 概述 ： marcopolo是全自动智能爬虫，并提供数据流即时处理的功能。
 ## 一：
 ### 实现目的：
 * 实现全自动智能收集网页数据，并且能够自动解析非格式化数据，数据进入kafka存储。
@@ -9,5 +9,5 @@
 ## 二：
 ### 技术选型：
 
-####marcopolo travel the world of internet.
+#### marcopolo travel the world of internet.
 
