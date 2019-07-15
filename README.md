@@ -18,6 +18,7 @@
 #### 搜索模块（如何做到智能搜索？）
 * 待定
 ### 技术选型：
-
+* elasticsearch
+* postgresql
+* flink
 #### marcopolo travel the world of internet.
-

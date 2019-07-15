@@ -11,6 +11,10 @@ public class App
 {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
+
+    public void function(){
+
+    }
     public static void main( String[] args )
     {
         logger.error("{},{}","a","b");

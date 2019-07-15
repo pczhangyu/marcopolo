@@ -12,6 +12,8 @@
         <module>marcopolo-common</module>
         <module>marcopolo-data</module>
         <module>marcopolo-web</module>
+        <module>marcopolo-search</module>
+        <module>marcopolo-collect</module>
     </modules>
 
     <properties>
