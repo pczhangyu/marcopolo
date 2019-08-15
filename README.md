@@ -21,4 +21,5 @@
 * elasticsearch
 * postgresql
 * flink
+* spring cloud
 #### marcopolo travel the world of internet.
