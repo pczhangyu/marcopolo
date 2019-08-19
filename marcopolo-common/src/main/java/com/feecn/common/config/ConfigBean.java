@@ -2,6 +2,7 @@ package com.feecn.common.config;
 
 /**
  * @author pczhangyu
+ * 配置类
  */
 public class ConfigBean implements ConfigAction,Runnable{
 
