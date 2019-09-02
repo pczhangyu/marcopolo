@@ -1,13 +1,18 @@
 package com.feecn.marcopolo.web.modular;
 
+import com.feecn.marcopolo.data.base.entity.ToOne;
+import com.feecn.marcopolo.data.base.repository.ToOneRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.List;
 import java.util.Map;
 
 
@@ -24,6 +29,9 @@ public class OpenRestyController {
     private Integer requestCount3 =0;
 
     private static InetAddress addr;
+
+    @Autowired
+    private ToOneRepository toOneRepository;
 
     static {
         try {
@@ -52,6 +60,8 @@ public class OpenRestyController {
     @GetMapping(value = "/uat/get")
     public ResponseEntity<?> getTest(@RequestParam(value = "param")String param){
         requestCount2= requestCount2+1;
+        List<ToOne> all = toOneRepository.findAll();
+        logger.info("toOne obj list is {}", all);
         return ResponseEntity.ok(String.format("get 测试接口已经被请求了 %s 次。当前服务端是 %s ", requestCount2,addr.getHostName()));
     }
 
