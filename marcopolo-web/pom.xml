@@ -27,7 +27,7 @@
     <dependencies>
         <dependency>
             <groupId>com.feecn</groupId>
-            <artifactId>marcopolo-data</artifactId>
+            <artifactId>marcopolo-collect</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

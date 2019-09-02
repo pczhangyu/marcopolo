@@ -14,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan(value = "com.feecn.marcopolo")
+@ComponentScan(basePackages = {"com.feecn.marcopolo","com.feecn.marcopolo.collect"})
 @EnableJpaRepositories(basePackages = "com.feecn.marcopolo.data.base.repository")
 @EntityScan(basePackages = "com.feecn.marcopolo.data.base.entity")
 @SpringBootApplication
