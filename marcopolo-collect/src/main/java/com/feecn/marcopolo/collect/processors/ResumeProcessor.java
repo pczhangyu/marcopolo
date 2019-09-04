@@ -6,6 +6,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.List;
 
+/**
+ * @author pczhangyu
+ */
 public class ResumeProcessor implements Runnable{
 
     private static Logger logger = LogManager.getLogger(ResumeProcessor.class);
